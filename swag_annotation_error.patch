@@ -1,0 +1,14 @@
+diff --git i/parser.go w/parser.go
+index aaa8112..fc6801e 100644
+--- i/parser.go
++++ w/parser.go
+@@ -636,7 +636,8 @@ func (parser *Parser) ParseRouterAPIInfo(fileName string, astFile *ast.File) err
+ 			for _, comment := range astDeclaration.Doc.List {
+ 				err := operation.ParseComment(comment.Text, astFile)
+ 				if err != nil {
+-					return fmt.Errorf("ParseComment error in file %s :%+v", fileName, err)
++					fmt.Println("Error found in file:", fileName, "error:", err)
++					// return fmt.Errorf("ParseComment error in file %s :%+v", fileName, err)
+ 				}
+ 			}
+ 
