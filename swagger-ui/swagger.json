@@ -1,0 +1,131 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Base go-swagger",
+    "title": "go-swagger example",
+    "version": "0.1.0"
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/": {
+      "get": {
+        "description": "go-swagger docs summary",
+        "summary": "go-swagger docs description",
+        "operationId": "example",
+        "responses": {
+          "200": {
+            "description": "mspIdentityResponse",
+            "schema": {
+              "$ref": "#/definitions/mspIdentityResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Attribute": {
+      "description": "Attribute defines additional attributes that may be passed along during registration",
+      "type": "object",
+      "properties": {
+        "ECert": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      },
+      "x-go-package": "github.com/hyperledger/fabric-sdk-go/pkg/client/msp"
+    },
+    "IdentityResponse": {
+      "description": "IdentityResponse is the response from the any read/add/modify/remove identity call",
+      "type": "object",
+      "properties": {
+        "Affiliation": {
+          "description": "The identity's affiliation",
+          "type": "string"
+        },
+        "Attributes": {
+          "description": "Array of attributes assigned to the user",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Attribute"
+          }
+        },
+        "CAName": {
+          "description": "Name of the CA",
+          "type": "string"
+        },
+        "ID": {
+          "description": "The enrollment ID which uniquely identifies an identity",
+          "type": "string"
+        },
+        "MaxEnrollments": {
+          "description": "The maximum number of times the secret can be reused to enroll",
+          "type": "integer",
+          "format": "int64"
+        },
+        "Secret": {
+          "description": "The enrollment secret",
+          "type": "string"
+        },
+        "Type": {
+          "description": "Type of identity (e.g. 'peer, app, user')",
+          "type": "string"
+        }
+      },
+      "x-go-package": "github.com/hyperledger/fabric-sdk-go/pkg/client/msp"
+    },
+    "mspIdentityResponse": {
+      "type": "object",
+      "properties": {
+        "Affiliation": {
+          "description": "The identity's affiliation",
+          "type": "string"
+        },
+        "Attributes": {
+          "description": "Array of attributes assigned to the user",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Attribute"
+          }
+        },
+        "CAName": {
+          "description": "Name of the CA",
+          "type": "string"
+        },
+        "ID": {
+          "description": "The enrollment ID which uniquely identifies an identity",
+          "type": "string"
+        },
+        "MaxEnrollments": {
+          "description": "The maximum number of times the secret can be reused to enroll",
+          "type": "integer",
+          "format": "int64"
+        },
+        "Secret": {
+          "description": "The enrollment secret",
+          "type": "string"
+        },
+        "Type": {
+          "description": "Type of identity (e.g. 'peer, app, user')",
+          "type": "string"
+        }
+      },
+      "x-go-name": "_",
+      "x-go-package": "github.com/matrixik/swag-perf"
+    }
+  }
+}

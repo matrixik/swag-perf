@@ -1,0 +1,56 @@
+basePath: /api
+definitions:
+  msp.Attribute:
+    properties:
+      ecert:
+        type: boolean
+      name:
+        type: string
+      value:
+        type: string
+    type: object
+  msp.IdentityResponse:
+    properties:
+      affiliation:
+        description: The identity's affiliation
+        type: string
+      attributes:
+        description: Array of attributes assigned to the user
+        items:
+          $ref: '#/definitions/msp.Attribute'
+        type: array
+      caname:
+        description: Name of the CA
+        type: string
+      id:
+        description: The enrollment ID which uniquely identifies an identity
+        type: string
+      maxEnrollments:
+        description: The maximum number of times the secret can be reused to enroll
+        type: integer
+      secret:
+        description: The enrollment secret
+        type: string
+      type:
+        description: Type of identity (e.g. 'peer, app, user')
+        type: string
+    type: object
+info:
+  contact: {}
+  description: |
+    # Base swaggo
+  title: swaggo example
+  version: 0.1.0
+paths:
+  /:
+    get:
+      description: swaggo docs description
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/msp.IdentityResponse'
+      summary: swaggo docs summary
+swagger: "2.0"

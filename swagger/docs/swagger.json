@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "# Base swaggo\n",
+        "title": "swaggo example",
+        "contact": {},
+        "version": "0.1.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/": {
+            "get": {
+                "description": "swaggo docs description",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "swaggo docs summary",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/msp.IdentityResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "msp.Attribute": {
+            "type": "object",
+            "properties": {
+                "ecert": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "msp.IdentityResponse": {
+            "type": "object",
+            "properties": {
+                "affiliation": {
+                    "description": "The identity's affiliation",
+                    "type": "string"
+                },
+                "attributes": {
+                    "description": "Array of attributes assigned to the user",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/msp.Attribute"
+                    }
+                },
+                "caname": {
+                    "description": "Name of the CA",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The enrollment ID which uniquely identifies an identity",
+                    "type": "string"
+                },
+                "maxEnrollments": {
+                    "description": "The maximum number of times the secret can be reused to enroll",
+                    "type": "integer"
+                },
+                "secret": {
+                    "description": "The enrollment secret",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of identity (e.g. 'peer, app, user')",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
