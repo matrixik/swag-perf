@@ -34,7 +34,19 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/msp.IdentityResponse"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/msp.IdentityResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "attributes": {
+                                            "$ref": "#/definitions/msp.Attribute"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }

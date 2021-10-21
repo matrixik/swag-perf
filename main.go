@@ -21,7 +21,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/msp"
 
-	_ "github.com/matrixik/swag-perf/docs"
+	_ "github.com/matrixik/swag-perf/swagger/docs"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
@@ -62,7 +62,7 @@ type _ struct {
 //
 // @Summary swaggo docs summary
 // @Description swaggo docs description
-// @Success 200 {object} msp.IdentityResponse
+// @Success 200 {object} msp.IdentityResponse{attributes=msp.Attribute}
 // @Produce json
 // @Router / [get]
 // @T

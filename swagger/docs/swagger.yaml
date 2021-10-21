@@ -51,6 +51,11 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/msp.IdentityResponse'
+            allOf:
+            - $ref: '#/definitions/msp.IdentityResponse'
+            - properties:
+                attributes:
+                  $ref: '#/definitions/msp.Attribute'
+              type: object
       summary: swaggo docs summary
 swagger: "2.0"
