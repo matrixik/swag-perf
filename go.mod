@@ -3,6 +3,7 @@ module github.com/matrixik/swag-perf
 go 1.17
 
 require (
+	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
 	github.com/gin-gonic/gin v1.7.4
 	github.com/hyperledger/fabric-sdk-go v1.0.0
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
